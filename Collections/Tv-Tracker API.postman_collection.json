@@ -1,0 +1,386 @@
+{
+	"info": {
+		"_postman_id": "fd0ca055-fb71-40fc-b206-5b797a884d29",
+		"name": "Tv-Tracker API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "43992562",
+		"_collection_link": "https://mitz-6273027.postman.co/workspace/Mitz's-Workspace~db5b3f1d-3479-4e8c-8d89-e4ed8214454c/collection/43992562-fd0ca055-fb71-40fc-b206-5b797a884d29?action=share&source=collection_link&creator=43992562"
+	},
+	"item": [
+		{
+			"name": "Médias",
+			"item": [
+				{
+					"name": "/api/medias - Valide",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/medias?type=serie&genre=Drama&year=2020",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"medias"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "serie"
+								},
+								{
+									"key": "genre",
+									"value": "Drama"
+								},
+								{
+									"key": "year",
+									"value": "2020"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/medias",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/medias",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"medias"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Films",
+			"item": [
+				{
+					"name": "/api/medias - Valide",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-user-id",
+								"value": "admin-1",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"type\": \"film\",\r\n  \"title\": \"Inception\",\r\n  \"genre\": \"Sci-Fi\",\r\n  \"year\": 2010,\r\n  \"rating\": 9,\r\n  \"duration\": 148,\r\n  \"watched\": false\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/medias",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"medias"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/medias - Invalide",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-user-id",
+								"value": "admin-1",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"type\": \"film\",\r\n  \"genre\": \"Sci-Fi\",\r\n  \"year\": 2010,\r\n  \"rating\": 9,\r\n  \"duration\": 148,\r\n  \"watched\": false\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/medias",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"medias"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/medias - Invalide Title",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-user-id",
+								"value": "admin-1",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"type\": \"film\",\r\n  \"title\": \"Inception@123\",\r\n  \"genre\": \"Sci-Fi\",\r\n  \"year\": 2010,\r\n  \"rating\": 9,\r\n  \"duration\": 148,\r\n  \"watched\": false\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/medias",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"medias"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/medias - Invalide Année",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-user-id",
+								"value": "admin-1",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"type\": \"film\",\r\n  \"title\": \"Future Movie\",\r\n  \"genre\": \"Sci-Fi\",\r\n  \"year\": 2020,\r\n  \"rating\": 9,\r\n  \"duration\": 120,\r\n  \"watched\": false\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/medias",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"medias"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Séries",
+			"item": [
+				{
+					"name": "/api/medias - Valide Série",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-user-id",
+								"value": "admin-1",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"type\": \"serie\",\r\n  \"title\": \"Drama Series\",\r\n  \"genre\": \"Drama\",\r\n  \"year\": 2020,\r\n  \"rating\": 8,\r\n  \"status\": \"en_cours\",\r\n  \"saisons\": []\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/medias",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"medias"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Saisons",
+			"item": [
+				{
+					"name": "/api/seasons - Valide",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-user-id",
+								"value": "admin-1",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"serieId\": \"serie-1\",\r\n  \"seasonNumber\": 2,\r\n  \"releaseDate\": \"2021-01-01\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/saisons",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"saisons"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/api/saisons - Valide Ajout de Saisons",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-user-id",
+								"value": "admin-1",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"serieId\": \"serie-1\",\r\n  \"seasonNumber\": 1,\r\n  \"releaseDate\": \"2020-01-01\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/saisons",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"saisons"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Épisodes",
+			"item": [
+				{
+					"name": "/api/episodes/:id - Valide Mettre à jour status Watch",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "x-user-id",
+								"value": "admin-1",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"watched\": true\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/episodes/ep-1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"episodes",
+								"ep-1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

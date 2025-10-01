@@ -1,0 +1,164 @@
+{
+  "users": [
+    {
+      "id": "admin-1",
+      "email": "admin@example.com",
+      "password": "$2b$10$y3X9lH3U6yqG6XeTj2Xk7eWkY7p.2Fs1ZlR6sNz1XyZ7Fh/KvP1uW",
+      "role": "admin",
+      "favorites": [
+        "film-1",
+        "05ce097a-581c-4306-b225-dd7b97a4f60c"
+      ]
+    },
+    {
+      "id": "user-1",
+      "email": "user@example.com",
+      "password": "$2b$10$M9bVQXfZyht6N3wLoH4wBOlROD7Y1ZnhKuT1DqPQlL0QqHQkPQz7y",
+      "role": "user",
+      "favorites": [
+        "a3d35a59-de3a-4bc6-879e-9384dafbac17",
+        "05ce097a-581c-4306-b225-dd7b97a4f60c"
+      ]
+    },
+    {
+      "id": "user-2",
+      "email": "jane.doe@example.com",
+      "password": "$2b$10$Q1vT5Zq3kHwY7p8F2sK3sO1N6bI8xN5yH1kV8qR1hP6wV2qX7lTjC",
+      "role": "user",
+      "favorites": [
+        "film-1",
+        "700d411d-f3de-4b1e-b8b7-c8ff77833ea8"
+      ]
+    }
+  ],
+  "medias": [
+    {
+      "id": "film-1",
+      "type": "film",
+      "title": "Inception",
+      "genre": "Sci-Fi",
+      "year": 2010,
+      "rating": 8.8,
+      "duration": 148,
+      "watched": true
+    },
+    {
+      "id": "serie-1",
+      "type": "serie",
+      "title": "Exemple Serie",
+      "genre": "Drama",
+      "year": 2020,
+      "rating": 7.5,
+      "status": "en_cours",
+      "saisons": [
+        {
+          "seasonNumber": 1,
+          "releaseDate": "2020-01-01",
+          "episodes": [
+            {
+              "id": "ep-1",
+              "title": "Pilote",
+              "duration": 45,
+              "episodeNumber": 1,
+              "watched": true
+            },
+            {
+              "id": "ep-2",
+              "title": "Deuxième épisode",
+              "duration": 50,
+              "episodeNumber": 2,
+              "watched": false
+            }
+          ],
+          "id": "36a39ab9-d7f8-48bf-af4e-8081c6ed6052"
+        },
+        {
+          "seasonNumber": 2,
+          "releaseDate": "2021-01-01",
+          "episodes": [],
+          "id": "3d8744c7-8391-4134-b4c7-433b8828d9d3"
+        },
+        {
+          "seasonNumber": 1,
+          "releaseDate": "2020-01-01",
+          "episodes": [],
+          "id": "b7d18706-5071-4981-9fb5-431ca2569203"
+        }
+      ]
+    },
+    {
+      "type": "film",
+      "title": "Inception",
+      "genre": "Sci-Fi",
+      "year": 2010,
+      "rating": 9,
+      "duration": 148,
+      "watched": false,
+      "id": "700d411d-f3de-4b1e-b8b7-c8ff77833ea8"
+    },
+    {
+      "type": "film",
+      "title": "The Matrix",
+      "genre": "Sci-Fi",
+      "year": 1999,
+      "rating": 8.7,
+      "duration": 136,
+      "watched": true,
+      "id": "a3d35a59-de3a-4bc6-879e-9384dafbac17"
+    },
+    {
+      "type": "film",
+      "title": "Interstellar",
+      "genre": "Sci-Fi",
+      "year": 2014,
+      "rating": 8.6,
+      "duration": 169,
+      "watched": false,
+      "id": "e724649a-1031-4e12-b092-7d76c3befe79"
+    },
+    {
+      "type": "serie",
+      "title": "Drama Series",
+      "genre": "Drama",
+      "year": 2020,
+      "rating": 8,
+      "status": "en_cours",
+      "saisons": [
+        {
+          "seasonNumber": 1,
+          "releaseDate": "2020-01-01",
+          "episodes": [
+            {
+              "id": "ep-3",
+              "title": "Première aventure",
+              "duration": 42,
+              "episodeNumber": 1,
+              "watched": false
+            }
+          ],
+          "id": "05ce097a-581c-4306-b225-dd7b97a4f60c"
+        }
+      ]
+    },
+    {
+      "type": "film",
+      "title": "Inception",
+      "genre": "Sci-Fi",
+      "year": 2010,
+      "rating": 9,
+      "duration": 148,
+      "watched": false,
+      "id": "16c58ead-f66b-428a-970f-00c9b6aae0b8"
+    },
+    {
+      "type": "serie",
+      "title": "Drama Series",
+      "genre": "Drama",
+      "year": 2020,
+      "rating": 8,
+      "status": "en_cours",
+      "saisons": [],
+      "id": "b0b18e4e-66a6-42a0-9af3-07e69c10e47e"
+    }
+  ]
+}
