@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { readDB, writeDB } from "../services/dbService";
+import { readDB } from "../services/dbService";
 import winston from "winston";
 
 //  Logger pour les opérations sur les séries

@@ -1,0 +1,24 @@
+[
+  {
+    "_id": {"$oid": "64ad00000000000000005001"},
+    "publicId": "RAT6N7M8B2",
+    "userId": {"$oid": "64ad00000000000000000002"},
+    "target": "movie",
+    "targetId": {"$oid": "64ad00000000000000001001"},
+    "score": 9,
+    "review": "Mind-bending!",
+    "createdAt": {"$date": "2025-10-31T00:00:00.000Z"},
+    "updatedAt": {"$date": "2025-10-31T00:00:00.000Z"}
+  },
+  {
+    "_id": {"$oid": "64ad00000000000000005002"},
+    "publicId": "RAT5V6C7X3",
+    "userId": {"$oid": "64ad00000000000000000002"},
+    "target": "episode",
+    "targetId": {"$oid": "64ad00000000000000004001"},
+    "score": 8,
+    "review": "Nice pilot",
+    "createdAt": {"$date": "2025-10-31T00:00:00.000Z"},
+    "updatedAt": {"$date": "2025-10-31T00:00:00.000Z"}
+  }
+]

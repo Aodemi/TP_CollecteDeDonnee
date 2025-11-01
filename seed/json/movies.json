@@ -1,0 +1,35 @@
+[
+  {
+    "_id": {"$oid": "64ad00000000000000001001"},
+    "publicId": "MOV9YH2K3M",
+    "title": "Inception",
+    "genres": ["Sci-Fi", "Thriller"],
+    "synopsis": "A dream within a dream.",
+    "releaseDate": {"$date": "2010-07-16T00:00:00.000Z"},
+    "durationMin": 148,
+    "createdAt": {"$date": "2025-10-31T00:00:00.000Z"},
+    "updatedAt": {"$date": "2025-10-31T00:00:00.000Z"}
+  },
+  {
+    "_id": {"$oid": "64ad00000000000000001002"},
+    "publicId": "MOV8ZP7L5Q",
+    "title": "Interstellar",
+    "genres": ["Sci-Fi", "Drama"],
+    "synopsis": "To save humanity, go beyond.",
+    "releaseDate": {"$date": "2014-11-07T00:00:00.000Z"},
+    "durationMin": 169,
+    "createdAt": {"$date": "2025-10-31T00:00:00.000Z"},
+    "updatedAt": {"$date": "2025-10-31T00:00:00.000Z"}
+  },
+  {
+    "_id": {"$oid": "64ad00000000000000001003"},
+    "publicId": "MOV7XW6V4T",
+    "title": "The Dark Knight",
+    "genres": ["Action", "Crime"],
+    "synopsis": "Batman vs Joker.",
+    "releaseDate": {"$date": "2008-07-18T00:00:00.000Z"},
+    "durationMin": 152,
+    "createdAt": {"$date": "2025-10-31T00:00:00.000Z"},
+    "updatedAt": {"$date": "2025-10-31T00:00:00.000Z"}
+  }
+]

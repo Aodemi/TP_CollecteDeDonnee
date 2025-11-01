@@ -1,8 +1,15 @@
+// Crée les serveurs HTTP/HTTPS
 import app from "./app";
+import http from "http";
+import https from "https";
+import { loadCertificate } from "./middlewares/certificat.middleware";
 
-const PORT = process.env.PORT || 3000; // Port par défaut 3000
+const env = app.get("env");
+console.log(`Environnement : ${env}`);
 
-// Démarrer le serveur
-app.listen(PORT, () => {
-  console.log(`Lancement du serveur sur http://localhost:${PORT}`);
-});
+const certOptions = loadCertificate();
+
+const httpServer = http.createServer(app);
+const httpsServer = certOptions ? https.createServer(certOptions, app) : undefined;
+
+export { httpServer, httpsServer };

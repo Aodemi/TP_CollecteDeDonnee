@@ -1,0 +1,8 @@
+{
+  "db": { "uri": "mongodb://localhost:27017/media_test" },
+  "security": {
+    "jwt": { "expiresIn": "5m" },
+    "cors": { "origins": ["http://localhost:4200"] },
+    "rateLimit": { "windowMs": 60000, "max": 20 }
+  }
+}

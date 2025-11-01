@@ -1,0 +1,35 @@
+[
+  {
+    "_id": {"$oid": "64ad00000000000000004001"},
+    "publicId": "EP19Q2W3E4",
+    "seriesId": {"$oid": "64ad00000000000000002001"},
+    "seasonId": {"$oid": "64ad00000000000000003001"},
+    "epNo": 1,
+    "title": "Pilot",
+    "durationMin": 45,
+    "createdAt": {"$date": "2025-10-31T00:00:00.000Z"},
+    "updatedAt": {"$date": "2025-10-31T00:00:00.000Z"}
+  },
+  {
+    "_id": {"$oid": "64ad00000000000000004002"},
+    "publicId": "EP28R4T5Y6",
+    "seriesId": {"$oid": "64ad00000000000000002001"},
+    "seasonId": {"$oid": "64ad00000000000000003001"},
+    "epNo": 2,
+    "title": "Second Wind",
+    "durationMin": 44,
+    "createdAt": {"$date": "2025-10-31T00:00:00.000Z"},
+    "updatedAt": {"$date": "2025-10-31T00:00:00.000Z"}
+  },
+  {
+    "_id": {"$oid": "64ad00000000000000004003"},
+    "publicId": "EP37U8Y9P6",
+    "seriesId": {"$oid": "64ad00000000000000002001"},
+    "seasonId": {"$oid": "64ad00000000000000003001"},
+    "epNo": 3,
+    "title": "Plot Thickens",
+    "durationMin": 46,
+    "createdAt": {"$date": "2025-10-31T00:00:00.000Z"},
+    "updatedAt": {"$date": "2025-10-31T00:00:00.000Z"}
+  }
+]

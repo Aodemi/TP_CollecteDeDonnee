@@ -1,0 +1,17 @@
+{
+  "db": { "uri": "MONGO_URI" },
+  "security": {
+    "jwt": { "secret": "JWT_SECRET" },
+    "cors": { "origins": "CORS_ORIGINS" },
+    "rateLimit": { "windowMs": "RATE_LIMIT_WINDOW_MS", "max": "RATE_LIMIT_MAX" }
+  },
+  "server": {
+    "http": { "port": "HTTP_PORT", "enabled": "HTTP_ENABLED" },
+    "https": {
+      "enabled": "HTTPS_ENABLED",
+      "port": "HTTPS_PORT",
+      "redirectAllHttpToHttps": "REDIRECT_HTTP_TO_HTTPS"
+    },
+    "trustProxy": "TRUST_PROXY"
+  }
+}

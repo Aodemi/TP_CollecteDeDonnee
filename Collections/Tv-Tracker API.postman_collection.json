@@ -1,10 +1,10 @@
 {
 	"info": {
-		"_postman_id": "fd0ca055-fb71-40fc-b206-5b797a884d29",
+		"_postman_id": "6142a137-274e-4f47-a583-d9d2710aa92a",
 		"name": "Tv-Tracker API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "43992562",
-		"_collection_link": "https://mitz-6273027.postman.co/workspace/Mitz's-Workspace~db5b3f1d-3479-4e8c-8d89-e4ed8214454c/collection/43992562-fd0ca055-fb71-40fc-b206-5b797a884d29?action=share&source=collection_link&creator=43992562"
+		"_collection_link": "https://mitz-6273027.postman.co/workspace/Mitz's-Workspace~db5b3f1d-3479-4e8c-8d89-e4ed8214454c/collection/43992562-6142a137-274e-4f47-a583-d9d2710aa92a?action=share&source=collection_link&creator=43992562"
 	},
 	"item": [
 		{
@@ -381,6 +381,683 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "V2",
+			"item": [
+				{
+					"name": "Auth",
+					"item": [
+						{
+							"name": "Auth / Register",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email\": \"newuser@example.com\",\n  \"username\": \"newuser\",\n  \"password\": \"User#123\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/auth/register",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"auth",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Auth / Login (capture token)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"pm.test(\"Login 200 + token present\", function () {",
+											"  pm.response.to.have.status(200);",
+											"  const jsonData = pm.response.json();",
+											"  pm.expect(jsonData).to.have.property(\"token\");",
+											"  pm.environment.set(\"accessToken\", jsonData.token);",
+											"});"
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email\": \"admin@example.com\",\n  \"password\": \"Admin#123\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/auth/login",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Users",
+					"item": [
+						{
+							"name": "Users / Me",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"const me = pm.response.json();",
+											"if (me && me._id) pm.environment.set(\"userId\", me._id);"
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/users/me",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"users",
+										"me"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Users / Patch Me",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"username\": \"updatedName\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/users/me",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"users",
+										"me"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Users / Get By Id (admin)",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/users/{{userId}}",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"users",
+										"{{userId}}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Movies",
+					"item": [
+						{
+							"name": "Movies / List",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/movies?title=&genre=&minYear=&maxDur=&page=1&limit=10",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"movies"
+									],
+									"query": [
+										{
+											"key": "title",
+											"value": ""
+										},
+										{
+											"key": "genre",
+											"value": ""
+										},
+										{
+											"key": "minYear",
+											"value": ""
+										},
+										{
+											"key": "maxDur",
+											"value": ""
+										},
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Movies / Create (admin)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"const m = pm.response.json();",
+											"if (m && m._id) pm.environment.set(\"movieId\", m._id);"
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"title\": \"Inception 2\",\n  \"genres\": [\"Sci-Fi\"],\n  \"synopsis\": \"Suite fan-made\",\n  \"durationMin\": 125,\n  \"releaseDate\": \"2025-01-01\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/movies",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"movies"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Movies / Get By Id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/movies/{{movieId}}",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"movies",
+										"{{movieId}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Movies / Patch (admin)",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"synopsis\": \"Synopsis mis à jour\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/movies/{{movieId}}",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"movies",
+										"{{movieId}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Movies / Delete (admin)",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/movies/{{movieId}}",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"movies",
+										"{{movieId}}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Series",
+					"item": [
+						{
+							"name": "Series / List",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/series?title=&genre=&status=",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"series"
+									],
+									"query": [
+										{
+											"key": "title",
+											"value": ""
+										},
+										{
+											"key": "genre",
+											"value": ""
+										},
+										{
+											"key": "status",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Series / Create (admin)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"const s = pm.response.json();",
+											"if (s && s._id) pm.environment.set(\"seriesId\", s._id);"
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"title\": \"My Show\",\n  \"genres\": [\"Drama\"],\n  \"status\": \"ongoing\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/series",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"series"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Seasons / Create (admin)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"const se = pm.response.json();",
+											"if (se && se._id) pm.environment.set(\"seasonId\", se._id);"
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"seasonNo\": 1,\n  \"episodes\": 10\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/series/{{seriesId}}/seasons",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"series",
+										"{{seriesId}}",
+										"seasons"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Episodes / Create (admin)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"const ep = pm.response.json();",
+											"if (ep && ep._id) pm.environment.set(\"episodeId\", ep._id);"
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"epNo\": 1,\n  \"title\": \"Pilot\",\n  \"durationMin\": 45\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/series/{{seriesId}}/seasons/{{seasonId}}/episodes",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"series",
+										"{{seriesId}}",
+										"seasons",
+										"{{seasonId}}",
+										"episodes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Episodes / List by season",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/series/{{seriesId}}/seasons/{{seasonId}}/episodes",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"series",
+										"{{seriesId}}",
+										"seasons",
+										"{{seasonId}}",
+										"episodes"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Ratings",
+					"item": [
+						{
+							"name": "Ratings / Add for movie",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"target\": \"movie\",\n  \"targetId\": \"{{movieId}}\",\n  \"score\": 8,\n  \"review\": \"cool\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/ratings",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"ratings"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Ratings / Add for episode",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"target\": \"episode\",\n  \"targetId\": \"{{episodeId}}\",\n  \"score\": 9,\n  \"review\": \"great pilot\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseURL}}/ratings",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"ratings"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Ratings / Avg movie",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/ratings/avg/movie/{{movieId}}",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"ratings",
+										"avg",
+										"movie",
+										"{{movieId}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Ratings / Avg series",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}/ratings/avg/series/{{seriesId}}",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"ratings",
+										"avg",
+										"series",
+										"{{seriesId}}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{accessToken}}",
+				"type": "string"
+			}
+		]
+	},
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "http://localhost:3000/api/v2"
+		},
+		{
+			"key": "accessToken",
+			"value": ""
+		},
+		{
+			"key": "userId",
+			"value": ""
+		},
+		{
+			"key": "movieId",
+			"value": ""
+		},
+		{
+			"key": "seriesId",
+			"value": ""
+		},
+		{
+			"key": "seasonId",
+			"value": ""
+		},
+		{
+			"key": "episodeId",
+			"value": ""
+		},
+		{
+			"key": "ratingId",
+			"value": ""
 		}
 	]
 }

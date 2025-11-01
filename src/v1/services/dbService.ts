@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 
 // Chemin vers le fichier de base de données JSON
-const dbPath = path.join(__dirname, "../data/db.json");
+const dbPath = path.join(__dirname, "../../data/db.json");
 
 //  Créer le fichier de base de données s'il n'existe pas
 export function ensureDB() {

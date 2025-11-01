@@ -1,0 +1,11 @@
+[
+  {
+    "_id": {"$oid": "64ad00000000000000003001"},
+    "publicId": "SEA7A2C5E9",
+    "seriesId": {"$oid": "64ad00000000000000002001"},
+    "seasonNo": 1,
+    "episodes": 3,
+    "createdAt": {"$date": "2025-10-31T00:00:00.000Z"},
+    "updatedAt": {"$date": "2025-10-31T00:00:00.000Z"}
+  }
+]
